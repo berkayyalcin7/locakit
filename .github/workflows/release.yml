@@ -1,0 +1,28 @@
+# npm'e otomatik yayın — Trusted Publishing (OIDC) ile token/secret GEREKMEZ.
+# Kurulum (bir kez): npmjs.com → locakit → Settings → Trusted Publisher →
+#   GitHub Actions | owner: berkayyalcin7 | repo: locakit | workflow: release.yml
+# Yayın akışı: npm version patch|minor|major && git push --follow-tags
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # OIDC ile npm'e kimlik kanıtı (provenance dahil)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      # Trusted publishing npm CLI >= 11.5.1 ister; runner'daki npm'i güncelle
+      - run: npm install -g npm@latest
+      - run: npm ci
+      - run: npm test
+      - run: npm publish

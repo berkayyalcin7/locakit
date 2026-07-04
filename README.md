@@ -1,5 +1,9 @@
 # locakit
 
+[![CI](https://github.com/berkayyalcin7/locakit/actions/workflows/ci.yml/badge.svg)](https://github.com/berkayyalcin7/locakit/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/locakit)](https://www.npmjs.com/package/locakit)
+[![license](https://img.shields.io/npm/l/locakit)](LICENSE)
+
 **Deterministic i18n engine for AI agents.** Your coding agent translates; locakit does everything else — key diffing, staleness tracking, placeholder validation and safe JSON writes.
 
 No translation API. No SaaS account. No API keys. Zero runtime dependencies.
