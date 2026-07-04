@@ -1,0 +1,45 @@
+{
+  "name": "locakit",
+  "version": "0.1.0",
+  "description": "Deterministic i18n engine for AI agents. Your agent translates; locakit does everything else — key diffing, lockfile tracking, placeholder validation and safe JSON writes. Zero dependencies, no API keys.",
+  "keywords": [
+    "i18n",
+    "l10n",
+    "localization",
+    "translation",
+    "ai-agent",
+    "claude-code",
+    "cli",
+    "turkish"
+  ],
+  "author": "Berkay Yalçın (https://berkayyalcin.dev)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berkayyalcin7/locakit.git"
+  },
+  "type": "module",
+  "bin": {
+    "locakit": "./dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test",
+    "prepublishOnly": "npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
